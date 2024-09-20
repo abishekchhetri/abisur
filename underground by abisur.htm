@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission Underground by Abisur</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1d1f21;
+            color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        header {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            color: #e91e63;
+        }
+        input {
+            width: 300px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<header>Mission Underground by Abisur</header>
+
+<input type="text" id="originalLink" placeholder="Enter the original link" />
+<button onclick="convertLink()">Go</button>
+
+<script>
+    function convertLink() {
+        const input = document.getElementById('originalLink').value;
+        const pattern = /\/thumbs\/v\/i\/d\/e\/o\/.*?\.mp4.*?\.jpg/;
+        
+        if (pattern.test(input)) {
+            // Convert the link
+            const convertedLink = input
+                .replace('/thumbs/', '/videos/')
+                .replace(/\.mp4\/.*?\.jpg/, '.mp4');
+            
+            // Redirect to the converted link
+            window.location.href = convertedLink;
+        } else {
+            // Show a message box if the link format is not supported
+            alert('Link not supported');
+        }
+    }
+</script>
+
+</body>
+</html>
+
